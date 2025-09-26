@@ -5,63 +5,83 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blockpass Pitch Deck</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        body {
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
             font-family: 'Inter', sans-serif;
             scroll-snap-type: y mandatory;
             overflow-y: scroll;
-            height: 100vh;
+            background-color: #0F172A; /* slate-900 */
         }
         .slide {
-            scroll-snap-align: start;
-            height: 100vh;
             width: 100%;
+            height: 100vh;
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 2rem;
             position: relative;
+            scroll-snap-align: start;
+            color: white;
+            padding: 4rem;
+            box-sizing: border-box;
+            background-size: cover;
+            background-position: center;
+        }
+        .slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(15, 23, 42, 0.7); /* slate-900 with opacity */
+            z-index: 1;
         }
         .slide-content {
-            max-width: 1200px;
+            position: relative;
+            z-index: 2;
             width: 100%;
-            margin: auto;
+            max-width: 1200px;
         }
         .slide-number {
             position: absolute;
-            bottom: 20px;
-            right: 20px;
+            bottom: 2rem;
+            right: 2rem;
             font-size: 0.875rem;
-            color: #94A3B8; /* slate-400 */
+            color: rgba(255, 255, 255, 0.5);
+            z-index: 2;
+        }
+        .bg-image-overlay::before {
+            background-color: rgba(15, 23, 42, 0.8); /* Darker overlay for image slides */
         }
     </style>
 </head>
-<body class="bg-slate-900 text-slate-200">
+<body>
 
-    <!-- Slide 1: Title -->
-    <div class="slide bg-slate-900">
+    <div class="slide bg-image-overlay" style="background-image: url('images/Gemini_Generated_Image_fxap7fxa...U.png');">
         <div class="slide-content text-center">
-            <h1 class="text-8xl font-bold mb-4">Blockpass</h1>
-            <p class="text-2xl text-slate-400">The Certified Digital Identity for Web3 and Beyond</p>
-            <p class="text-xl mt-8">Pitch Deck for Aquis Exchange Listing</p>
+            <h1 class="text-7xl md:text-8xl font-extrabold mb-4" style="text-shadow: 2px 2px 8px rgba(0,0,0,0.7);">Blockpass</h1>
+            <p class="text-2xl md:text-3xl text-slate-300" style="text-shadow: 1px 1px 4px rgba(0,0,0,0.7);">The Certified Digital Identity for Web3 and Beyond</p>
+            <p class="text-xl mt-8 text-slate-400">Pitch Deck for Aquis Exchange Listing</p>
         </div>
         <div class="slide-number">1 / 13</div>
     </div>
 
-    <!-- Slide 2: The Opportunity -->
     <div class="slide bg-slate-800">
         <div class="slide-content text-center">
             <h2 class="text-4xl font-bold mb-8">The Opportunity is Now</h2>
             <p class="text-xl max-w-4xl mx-auto text-slate-300 mb-10">The UK and EU have introduced official legal frameworks for digital identity. As pioneers in reusable KYC, the market is finally maturing, allowing Blockpass to become a government-certified identity provider and bridge the gap between Web3 and the real world.</p>
             <div class="grid md:grid-cols-2 gap-8 text-left">
-                <div class="bg-slate-700 p-6 rounded-lg">
+                <div class="bg-slate-700 p-6 rounded-lg shadow-lg">
                     <h3 class="text-2xl font-semibold mb-3">Regulatory Clarity</h3>
                     <p class="text-slate-400">Frameworks like the UK's DIATF create a clear path for certified providers, removing market uncertainty and unlocking enterprise and government adoption.</p>
                 </div>
-                <div class="bg-slate-700 p-6 rounded-lg">
+                <div class="bg-slate-700 p-6 rounded-lg shadow-lg">
                     <h3 class="text-2xl font-semibold mb-3">Market Maturation</h3>
                     <p class="text-slate-400">After years of development, the demand for trusted, user-controlled identity in both Web2 and Web3 is converging, creating an explosive market opportunity.</p>
                 </div>
@@ -70,40 +90,38 @@
         <div class="slide-number">2 / 13</div>
     </div>
 
-    <!-- Slide 3: Our Proven Technology -->
-    <div class="slide bg-slate-900">
-        <div class="slide-content">
-            <h2 class="text-4xl font-bold mb-8 text-center">A Battle-Tested & Trusted Platform</h2>
-            <p class="text-xl text-center max-w-3xl mx-auto text-slate-300 mb-10">We are a break-even company within Web3, built on 7 years of operational experience. Our platform is certified, highly-rated, and ready for mass adoption.</p>
-            <div class="grid md:grid-cols-2 gap-8 text-center">
-                <div class="bg-slate-800 p-6 rounded-lg">
-                    <h3 class="text-2xl font-semibold mb-4">Scalable e-KYC Platform</h3>
-                    <p>API-first model with full remediation and AML monitoring, serving 650+ businesses.</p>
+    <div class="slide bg-slate-900 bg-image-overlay" style="background-image: url('images/Gemini_Generated_Image_fxap7fxa...U (1).png');">
+        <div class="slide-content text-center">
+            <h2 class="text-4xl font-bold mb-8">Proven, Certified & Trusted</h2>
+            <p class="text-xl max-w-4xl mx-auto text-slate-300 mb-10">We have built a highly scalable, API-first e-KYC system with full remediation, trusted by over 800 businesses and 1.3M+ users over 7 years.</p>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+                <div class="bg-slate-800/70 backdrop-blur-sm p-6 rounded-lg">
+                    <h3 class="text-5xl font-bold text-blue-400">7+</h3>
+                    <p class="text-slate-400 mt-2">Years in Market</p>
                 </div>
-                <div class="bg-slate-800 p-6 rounded-lg">
-                    <h3 class="text-2xl font-semibold mb-4">Certified Secure</h3>
-                    <p>ISO 27001 and Cyber Essentials Plus certified, ensuring enterprise-grade security.</p>
+                <div class="bg-slate-800/70 backdrop-blur-sm p-6 rounded-lg">
+                    <h3 class="text-5xl font-bold text-blue-400">Break-Even</h3>
+                    <p class="text-slate-400 mt-2">Profitable in Web3</p>
                 </div>
-                 <div class="bg-slate-800 p-6 rounded-lg">
-                    <h3 class="text-2xl font-semibold mb-4">Industry Pioneer</h3>
-                    <p>7 years of operational experience in the digital identity space.</p>
+                <div class="bg-slate-800/70 backdrop-blur-sm p-6 rounded-lg">
+                    <h3 class="text-2xl font-bold">ISO 27001 & Cyber Essentials Plus</h3>
+                    <p class="text-slate-400 mt-2">Certified Secure</p>
                 </div>
-                <div class="bg-slate-800 p-6 rounded-lg">
-                    <h3 class="text-2xl font-semibold mb-4">Highly Rated by Users</h3>
-                    <p>4.3-star rating on TrustPilot, reflecting excellent user satisfaction.</p>
+                 <div class="bg-slate-800/70 backdrop-blur-sm p-6 rounded-lg">
+                    <h3 class="text-5xl font-bold text-blue-400">4.3 ★</h3>
+                    <p class="text-slate-400 mt-2">TrustPilot Rating</p>
                 </div>
             </div>
         </div>
         <div class="slide-number">3 / 13</div>
     </div>
 
-    <!-- Slide 4: Bank-Grade Compliance Suite -->
-    <div class="slide bg-slate-800">
+    <div class="slide bg-slate-800 bg-image-overlay" style="background-image: url('images/Gemini_Generated_Image_fxap7fxa...U (2).png');">
         <div class="slide-content">
             <h2 class="text-4xl font-bold mb-8 text-center">A Bank-Grade Compliance Suite</h2>
             <p class="text-xl text-center max-w-4xl mx-auto text-slate-300 mb-10">Our KYC Connect® dashboard offers a comprehensive, bank-grade verification system for both individuals and businesses, complete with full dashboard remediation and user support.</p>
             <div class="grid md:grid-cols-2 gap-8 text-left">
-                <div class="bg-slate-700 p-6 rounded-lg">
+                <div class="bg-slate-800/70 backdrop-blur-sm p-6 rounded-lg">
                     <h3 class="text-2xl font-semibold mb-4">Comprehensive KYC Features</h3>
                     <ul class="list-disc list-inside text-slate-300 space-y-2">
                         <li>Proof of Address Verification</li>
@@ -113,7 +131,7 @@
                         <li>Continuous AML Monitoring</li>
                     </ul>
                 </div>
-                <div class="bg-slate-700 p-6 rounded-lg">
+                <div class="bg-slate-800/70 backdrop-blur-sm p-6 rounded-lg">
                     <h3 class="text-2xl font-semibold mb-4">Global KYB Solution</h3>
                     <p class="text-slate-300">A seamless, fully supported process for business verification that covers all jurisdictions and corporate structures, ensuring compliance on a global scale.</p>
                 </div>
@@ -122,34 +140,31 @@
         <div class="slide-number">4 / 13</div>
     </div>
 
-    <!-- Slide 5: The Next Evolution: Blockpass ID 2.0 -->
-    <div class="slide bg-slate-900">
+    <div class="slide bg-slate-900 bg-image-overlay" style="background-image: url('images/Gemini_Generated_Image_fxap7fxa...U (3).png');">
         <div class="slide-content text-center">
             <h2 class="text-4xl font-bold mb-8">The Future: A Full Attestation Framework</h2>
             <p class="text-xl max-w-4xl mx-auto text-slate-300 mb-10">Our next objective is to complete the circle. Blockpass ID 2.0 will offer a full framework for individuals and businesses to generate, control, and use certified attestations across Web2 and Web3.</p>
-            <!--  -->
-            <div class="bg-slate-700 p-8 rounded-lg flex flex-col md:flex-row items-center gap-8">
+            <div class="bg-slate-800/70 backdrop-blur-sm p-8 rounded-lg flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8">
                 <div class="text-center">
-                    <p class="text-2xl font-bold text-blue-400">User obtains a certified attestation from Blockpass</p>
-                    <p class="text-slate-400">(e.g., "Is Over 25", "Is Not Sanctioned")</p>
+                    <p class="text-lg md:text-xl font-bold text-blue-400">User obtains a certified attestation from Blockpass</p>
+                    <p class="text-sm text-slate-400">(e.g., "Is Over 25", "Is Not Sanctioned")</p>
                 </div>
-                <div class="text-4xl mx-4 text-blue-400">&rarr;</div>
+                <div class="text-4xl text-blue-400 transform rotate-90 md:rotate-0">&rarr;</div>
                 <div class="text-center">
-                    <p class="text-2xl font-bold text-blue-400">User controls the attestation with their Metamask Wallet</p>
-                    <p class="text-slate-400">(Self-Sovereign Control)</p>
+                    <p class="text-lg md:text-xl font-bold text-blue-400">User controls it with their Metamask Wallet</p>
+                    <p class="text-sm text-slate-400">(Self-Sovereign Control)</p>
                 </div>
-                <div class="text-4xl mx-4 text-blue-400">&rarr;</div>
+                <div class="text-4xl text-blue-400 transform rotate-90 md:rotate-0">&rarr;</div>
                 <div class="text-center">
-                    <p class="text-2xl font-bold text-blue-400">User presents it for any use case</p>
-                    <p class="text-slate-400">(Renting a car, accessing a smart contract)</p>
+                    <p class="text-lg md:text-xl font-bold text-blue-400">User presents it for any use case</p>
+                    <p class="text-sm text-slate-400">(Renting a car, DeFi access)</p>
                 </div>
             </div>
         </div>
         <div class="slide-number">5 / 13</div>
     </div>
 
-     <!-- Slide 6: Market Opportunity -->
-    <div class="slide bg-slate-800">
+     <div class="slide bg-slate-800">
         <div class="slide-content">
             <h2 class="text-4xl font-bold mb-8 text-center">An Exploding Market</h2>
              <p class="text-xl text-center max-w-4xl mx-auto text-slate-300 mb-10">The digital identity market is rapidly expanding, projected to grow from ~$39 billion in 2024 to over $130 billion by 2030, with a CAGR of over 20%. This growth is driven by rising security threats and new government frameworks.</p>
@@ -158,7 +173,7 @@
                     <h3 class="text-2xl font-semibold mb-4 text-center">Global Digital Identity Market (USD Billions)</h3>
                      <canvas id="marketChart"></canvas>
                 </div>
-                <div>
+                <div class="bg-slate-700 p-6 rounded-lg">
                     <h3 class="text-2xl font-semibold mb-4">Our Target Markets (SAM/SOM)</h3>
                     <ul class="list-disc list-inside text-lg space-y-3 text-slate-300">
                         <li><strong class="text-white">Web3 (Crypto, DeFi, NFTs):</strong> Our core, profitable market where compliance is becoming mandatory.</li>
@@ -171,48 +186,54 @@
         <div class="slide-number">6 / 13</div>
     </div>
 
-    <!-- Slide 7: Competitive Advantage -->
     <div class="slide bg-slate-900">
         <div class="slide-content">
             <h2 class="text-4xl font-bold mb-8 text-center">Our Competitive Advantage</h2>
             <table class="w-full text-left border-collapse text-sm md:text-base">
                 <thead>
-                    <tr>
-                        <th class="border-b-2 border-slate-600 p-2 md:p-4">Feature</th>
-                        <th class="border-b-2 border-slate-600 p-2 md:p-4 text-center text-blue-400">Blockpass</th>
-                        <th class="border-b-2 border-slate-600 p-2 md:p-4 text-center">UK Certified IDPs (Yoti, OneID)</th>
-                        <th class="border-b-2 border-slate-600 p-2 md:p-4 text-center">Legacy KYC (Jumio, Onfido)</th>
-                        <th class="border-b-2 border-slate-600 p-2 md:p-4 text-center">Web3 Protocols (Civic, BrightID)</th>
+                    <tr class="border-b-2 border-slate-700">
+                        <th class="p-3">Feature</th>
+                        <th class="p-3 text-center text-blue-400">Blockpass</th>
+                        <th class="p-3 text-center">Yoti</th>
+                        <th class="p-3 text-center">OneID</th>
+                        <th class="p-3 text-center">Typical KYC Provider</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr class="bg-slate-700">
-                        <td class="p-2 md:p-4 font-semibold">UK DIATF Certification</td>
-                        <td class="p-2 md:p-4 text-center text-yellow-400">In Progress</td>
-                        <td class="p-2 md:p-4 text-center text-green-400">✔</td>
-                        <td class="p-2 md:p-4 text-center text-red-400">✖</td>
-                        <td class="p-2 md:p-4 text-center text-red-400">✖</td>
+                <tbody class="text-slate-300">
+                    <tr class="border-b border-slate-800">
+                        <td class="p-3">UK DIATF Certification Path</td>
+                        <td class="p-3 text-center text-green-400">In Progress</td>
+                        <td class="p-3 text-center text-green-400">✔</td>
+                        <td class="p-3 text-center text-green-400">✔</td>
+                        <td class="p-3 text-center text-red-400">✖</td>
+                    </tr>
+                    <tr class="border-b border-slate-800">
+                        <td class="p-3">Web3 & Metamask Native</td>
+                        <td class="p-3 text-center text-green-400">✔</td>
+                        <td class="p-3 text-center text-red-400">✖</td>
+                        <td class="p-3 text-center text-red-400">✖</td>
+                        <td class="p-3 text-center text-red-400">✖</td>
+                    </tr>
+                    <tr class="border-b border-slate-800">
+                        <td class="p-3">Reusable, User-Controlled ID</td>
+                        <td class="p-3 text-center text-green-400">✔</td>
+                        <td class="p-3 text-center text-green-400">✔</td>
+                        <td class="p-3 text-center text-green-400">✔</td>
+                        <td class="p-3 text-center text-red-400">✖</td>
+                    </tr>
+                    <tr class="border-b border-slate-800">
+                        <td class="p-3">Bank-Grade KYC/AML/KYB Suite</td>
+                         <td class="p-3 text-center text-green-400">✔</td>
+                        <td class="p-3 text-center text-green-400">✔</td>
+                        <td class="p-3 text-center">Partial</td>
+                        <td class="p-3 text-center">Varies</td>
                     </tr>
                     <tr>
-                        <td class="p-2 md:p-4 font-semibold">Web3 Wallet Control</td>
-                        <td class="p-2 md:p-4 text-center text-green-400">✔</td>
-                        <td class="p-2 md:p-4 text-center text-red-400">✖</td>
-                        <td class="p-2 md:p-4 text-center text-red-400">✖</td>
-                        <td class="p-2 md:p-4 text-center text-green-400">✔</td>
-                    </tr>
-                    <tr class="bg-slate-700">
-                        <td class="p-2 md:p-4 font-semibold">Web2 & Web3 Use Cases</td>
-                        <td class="p-2 md:p-4 text-center text-green-400">✔</td>
-                        <td class="p-2 md:p-4 text-center text-yellow-400">Web2 Only</td>
-                        <td class="p-2 md:p-4 text-center text-red-400">✖ (Single Use)</td>
-                        <td class="p-2 md:p-4 text-center text-yellow-400">Web3 Only</td>
-                    </tr>
-                    <tr>
-                        <td class="p-2 md:p-4 font-semibold">Proven B2B SaaS Model</td>
-                        <td class="p-2 md:p-4 text-center text-green-400">✔</td>
-                        <td class="p-2 md:p-4 text-center text-green-400">✔</td>
-                        <td class="p-2 md:p-4 text-center text-green-400">✔</td>
-                        <td class="p-2 md:p-4 text-center text-yellow-400">Token-based</td>
+                        <td class="p-3">Built-in Token Incentives (PASS)</td>
+                        <td class="p-3 text-center text-green-400">✔</td>
+                        <td class="p-3 text-center text-red-400">✖</td>
+                        <td class="p-3 text-center text-red-400">✖</td>
+                        <td class="p-3 text-center text-red-400">✖</td>
                     </tr>
                 </tbody>
             </table>
@@ -220,24 +241,26 @@
         <div class="slide-number">7 / 13</div>
     </div>
 
-    <!-- Slide 8: Business Model & PASS Token -->
     <div class="slide bg-slate-800">
         <div class="slide-content">
             <h2 class="text-4xl font-bold mb-8 text-center">Business Model & Token Utility</h2>
             <div class="grid md:grid-cols-2 gap-8">
-                <div class="bg-slate-800 p-8 rounded-lg">
-                    <h3 class="text-2xl font-semibold mb-4">Proven B2B SaaS Revenue</h3>
-                    <ul class="list-disc list-inside text-lg text-slate-300 space-y-2">
-                        <li><strong>Setup Fee:</strong> One-time integration and onboarding fee.</li>
-                        <li><strong>Annual License Fee:</strong> Recurring revenue for platform access.</li>
-                        <li><strong>Pay-per-Verification:</strong> Scalable usage-based fees.</li>
+                <div class="bg-slate-700 p-6 rounded-lg">
+                    <h3 class="text-2xl font-semibold mb-3">B2B SaaS Revenue</h3>
+                    <p class="text-slate-300">Our core revenue comes from an API-first model targeting medium-sized VASPs (Virtual Asset Service Providers) and other regulated businesses.</p>
+                     <ul class="list-disc list-inside text-slate-400 mt-4 space-y-2">
+                        <li>Subscription & Pay-Per-Verification models</li>
+                        <li>Full KYB and ongoing AML monitoring services</li>
+                        <li>Break-even and profitable within our Web3 niche</li>
                     </ul>
                 </div>
-                 <div class="bg-slate-800 p-8 rounded-lg">
-                    <h3 class="text-2xl font-semibold mb-4">PASS Token Strategy</h3>
-                    <ul class="list-disc list-inside text-lg text-slate-300 space-y-2">
-                        <li><strong>User Incentives:</strong> We will continue to offer incentives through the PASS token for users as they obtain attestations.</li>
-                        <li><strong>Future Development:</strong> Once listed, we will develop the token strategy further to enhance network effects and user engagement.</li>
+                <div class="bg-slate-700 p-6 rounded-lg">
+                    <h3 class="text-2xl font-semibold mb-3">PASS Token Utility</h3>
+                    <p class="text-slate-300">The PASS token creates a powerful flywheel effect, incentivizing user participation and network growth.</p>
+                     <ul class="list-disc list-inside text-slate-400 mt-4 space-y-2">
+                        <li>Users earn PASS for obtaining attestations</li>
+                        <li>Incentivizes re-use of the Blockpass identity</li>
+                        <li>Future token strategy to be developed post-listing</li>
                     </ul>
                 </div>
             </div>
@@ -245,82 +268,112 @@
         <div class="slide-number">8 / 13</div>
     </div>
 
-    <!-- Slide 9: Traction -->
     <div class="slide bg-slate-900">
         <div class="slide-content text-center">
             <h2 class="text-4xl font-bold mb-8">Our Traction & Network</h2>
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="bg-slate-700 p-6 rounded-lg">
-                    <p class="text-5xl font-bold text-blue-400">1.3M+</p>
-                    <p class="text-xl mt-2 text-slate-300">Verified Users</p>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+                 <div class="bg-slate-800 p-6 rounded-lg">
+                    <h3 class="text-5xl font-bold text-blue-400">1.3M+</h3>
+                    <p class="text-slate-400 mt-2">Verified User Identities</p>
                 </div>
-                <div class="bg-slate-700 p-6 rounded-lg">
-                    <p class="text-5xl font-bold text-blue-400">650+</p>
-                    <p class="text-xl mt-2 text-slate-300">Business Customers</p>
+                <div class="bg-slate-800 p-6 rounded-lg">
+                    <h3 class="text-5xl font-bold text-blue-400">80+</h3>
+                    <p class="text-slate-400 mt-2">Enterprise Subscribers</p>
                 </div>
-                <div class="bg-slate-700 p-6 rounded-lg">
-                    <p class="text-5xl font-bold text-blue-400">80+</p>
-                    <p class="text-xl mt-2 text-slate-300">Enterprise Subscribers</p>
+                <div class="bg-slate-800 p-6 rounded-lg">
+                    <h3 class="text-5xl font-bold text-blue-400">650+</h3>
+                    <p class="text-slate-400 mt-2">Business Customers (Since Inception)</p>
                 </div>
-                <div class="bg-slate-700 p-6 rounded-lg">
-                    <p class="text-5xl font-bold text-blue-400">Break-Even</h2>
-                    <p class="text-xl mt-2 text-slate-300">Profitable within Web3</p>
+                 <div class="bg-slate-800 p-6 rounded-lg">
+                    <h3 class="text-5xl font-bold text-blue-400">20+</h3>
+                    <p class="text-slate-400 mt-2">Team Members Globally</p>
                 </div>
             </div>
         </div>
         <div class="slide-number">9 / 13</div>
     </div>
 
-    <!-- Slide 10: Strategic Roadmap -->
     <div class="slide bg-slate-800">
         <div class="slide-content">
             <h2 class="text-4xl font-bold mb-8 text-center">Strategic Roadmap</h2>
-            <div class="border-l-2 border-blue-400 ml-6 md:ml-0 pl-6 md:pl-0 md:border-l-0 md:border-t-2 md:flex">
-                <div class="flex-1 md:border-l-2 border-blue-400 md:pt-4 pl-6 relative">
-                    <div class="absolute -left-3 -top-1.5 md:-left-2.5 md:-top-2.5 w-4 h-4 bg-blue-400 rounded-full"></div>
-                    <h3 class="text-xl font-bold">Phase 1: Funding & Listing</h3>
-                    <p class="text-slate-400 mt-2">Raise $1M Seed Round</p>
-                    <p class="text-slate-400">Complete Aquis Listing</p>
-                </div>
-                <div class="flex-1 md:border-l-2 border-blue-400 md:pt-4 pl-6 relative">
-                    <div class="absolute -left-3 -top-1.5 md:-left-2.5 md:-top-2.5 w-4 h-4 bg-blue-400 rounded-full"></div>
-                    <h3 class="text-xl font-bold">Phase 2: Certification</h3>
-                    <p class="text-slate-400 mt-2">Achieve DIATF Certification</p>
-                </div>
-                <div class="flex-1 md:border-l-2 border-blue-400 md:pt-4 pl-6 relative">
-                    <div class="absolute -left-3 -top-1.5 md:-left-2.5 md:-top-2.5 w-4 h-4 bg-blue-400 rounded-full"></div>
-                    <h3 class="text-xl font-bold">Phase 3: Product & Market</h3>
-                    <p class="text-slate-400 mt-2">Build out Blockpass ID 2.0 Attestation Modules</p>
-                    <p class="text-slate-400">Launch targeted marketing campaigns</p>
-                </div>
-                <div class="flex-1 md:border-l-2 border-blue-400 md:pt-4 pl-6 relative">
-                    <div class="absolute -left-3 -top-1.5 md:-left-2.5 md:-top-2.5 w-4 h-4 bg-blue-400 rounded-full"></div>
-                    <h3 class="text-xl font-bold">Phase 4: Expansion</h3>
-                    <p class="text-slate-400 mt-2">Onboard enterprise clients for Web2 use cases</p>
-                    <p class="text-slate-400">Explore further government pilots</p>
+            <div class="relative w-full">
+                 <div class="absolute left-1/2 -translate-x-1/2 md:left-0 md:top-1/2 md:-translate-y-1/2 md:w-full h-full md:h-0.5 bg-slate-700"></div>
+                <div class="relative flex flex-col md:flex-row justify-between w-full">
+                    <div class="milestone">
+                        <div class="milestone-dot"></div>
+                        <h4 class="milestone-title">Q4 2025: Funding</h4>
+                        <p class="milestone-text">Raise $1M Seed Round</p>
+                    </div>
+                    <div class="milestone">
+                        <div class="milestone-dot"></div>
+                        <h4 class="milestone-title">Q1 2026: Certification</h4>
+                        <p class="milestone-text">Achieve UK DIATF Certification</p>
+                    </div>
+                    <div class="milestone">
+                        <div class="milestone-dot"></div>
+                        <h4 class="milestone-title">Q2 2026: Product</h4>
+                        <p class="milestone-text">Launch Blockpass ID 2.0 Attestation Modules</p>
+                    </div>
+                    <div class="milestone">
+                        <div class="milestone-dot"></div>
+                        <h4 class="milestone-title">Q3 2026: Go-to-Market</h4>
+                        <p class="milestone-text">Scale marketing for ID 2.0 to Web2 & Web3</p>
+                    </div>
+                     <div class="milestone">
+                        <div class="milestone-dot"></div>
+                        <h4 class="milestone-title">Q4 2026: Listing</h4>
+                        <p class="milestone-text">List company on Aquis Exchange</p>
+                    </div>
                 </div>
             </div>
+            <style>
+                .milestone {
+                    position: relative;
+                    text-align: center;
+                    padding: 1.5rem;
+                    flex: 1;
+                }
+                .milestone-dot {
+                    position: absolute;
+                    left: 50%;
+                    top: 0;
+                    transform: translate(-50%, -50%);
+                    width: 24px;
+                    height: 24px;
+                    background-color: #0F172A; /* slate-900 */
+                    border: 4px solid #38BDF8; /* sky-400 */
+                    border-radius: 50%;
+                }
+                 .milestone-title { font-weight: bold; font-size: 1.1rem; margin-bottom: 0.5rem; color: #fff; }
+                .milestone-text { color: #94A3B8; /* slate-400 */ font-size: 0.9rem; }
+                 @media (min-width: 768px) {
+                    .milestone-dot {
+                        top: 50%;
+                        left: 50%;
+                    }
+                }
+            </style>
         </div>
         <div class="slide-number">10 / 13</div>
     </div>
 
-    <!-- Slide 11: The Team -->
+
     <div class="slide bg-slate-900">
         <div class="slide-content">
             <h2 class="text-4xl font-bold mb-8 text-center">Our Team</h2>
             <div class="grid md:grid-cols-3 gap-8 text-center">
-                <div>
-                    <img src="https://placehold.co/128x128/334155/FFFFFF?text=AV" alt="Adam Vaziri" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover border-2 border-blue-400">
+                <div class="flex flex-col items-center">
+                    <div class="w-32 h-32 bg-slate-700 rounded-full mb-4 flex items-center justify-center font-bold text-4xl text-blue-400">AV</div>
                     <h3 class="text-xl font-semibold">Adam Vaziri</h3>
                     <p class="text-slate-400">CEO</p>
                 </div>
-                <div>
-                    <img src="https://placehold.co/128x128/334155/FFFFFF?text=HL" alt="Hans Lombardo" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover border-2 border-blue-400">
+                <div class="flex flex-col items-center">
+                    <div class="w-32 h-32 bg-slate-700 rounded-full mb-4 flex items-center justify-center font-bold text-4xl text-blue-400">HL</div>
                     <h3 class="text-xl font-semibold">Hans Lombardo</h3>
                     <p class="text-slate-400">CMO</p>
                 </div>
-                <div>
-                    <img src="https://placehold.co/128x128/334155/FFFFFF?text=TL" alt="Thomas Leiritz" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover border-2 border-blue-400">
+                 <div class="flex flex-col items-center">
+                     <div class="w-32 h-32 bg-slate-700 rounded-full mb-4 flex items-center justify-center font-bold text-4xl text-blue-400">TL</div>
                     <h3 class="text-xl font-semibold">Thomas Leiritz</h3>
                     <p class="text-slate-400">CTO</p>
                 </div>
@@ -329,42 +382,33 @@
         <div class="slide-number">11 / 13</div>
     </div>
 
-    <!-- Slide 12: The Ask -->
     <div class="slide bg-slate-800">
         <div class="slide-content text-center">
             <h2 class="text-4xl font-bold mb-8">The Ask</h2>
             <p class="text-2xl mb-4">We are raising <span class="text-blue-400 font-bold">$1 million</span> to accelerate our growth and achieve full certification.</p>
-            <div class="mt-8">
-                 <h3 class="text-2xl font-semibold mb-6">Use of Funds:</h3>
-                <div class="grid md:grid-cols-4 gap-8 text-left">
-                     <div class="bg-slate-800 p-6 rounded-lg">
-                        <h4 class="font-bold text-xl text-blue-400">Certification</h4>
-                        <p class="text-slate-300">Obtain UK DIATF and other necessary certifications.</p>
-                    </div>
-                    <div class="bg-slate-800 p-6 rounded-lg">
-                         <h4 class="font-bold text-xl text-blue-400">Build Modules</h4>
-                         <p class="text-slate-300">Build out the full Blockpass ID 2.0 attestation framework.</p>
-                    </div>
-                     <div class="bg-slate-800 p-6 rounded-lg">
-                        <h4 class="font-bold text-xl text-blue-400">Marketing</h4>
-                        <p class="text-slate-300">Market the new certified identity system to Web2 & Web3.</p>
-                    </div>
-                    <div class="bg-slate-800 p-6 rounded-lg">
-                        <h4 class="font-bold text-xl text-blue-400">Aquis Listing</h4>
-                        <p class="text-slate-300">Cover all costs associated with listing the company.</p>
-                    </div>
+            <div class="grid md:grid-cols-3 gap-8 mt-10">
+                <div class="bg-slate-700 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-2">Certification & Legal</h3>
+                    <p class="text-slate-400">Complete DIATF certification and establish legal frameworks for the listed entity.</p>
+                </div>
+                <div class="bg-slate-700 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-2">Product Development</h3>
+                    <p class="text-slate-400">Build out the full Blockpass ID 2.0 attestation modules and platform enhancements.</p>
+                </div>
+                <div class="bg-slate-700 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-2">Marketing & Listing</h3>
+                    <p class="text-slate-400">Fund a comprehensive marketing campaign and cover the costs of the Aquis Exchange listing.</p>
                 </div>
             </div>
         </div>
         <div class="slide-number">12 / 13</div>
     </div>
     
-    <!-- Slide 13: Contact -->
-    <div class="slide bg-slate-900">
+    <div class="slide bg-slate-900 bg-image-overlay" style="background-image: url('images/Gemini_Generated_Image_fxap7fxa...U.png'); background-position: bottom;">
         <div class="slide-content text-center">
             <h2 class="text-5xl font-bold mb-6">Thank You</h2>
             <p class="text-2xl text-slate-300 mb-8">Let's build the future of digital identity together.</p>
-            <div>
+            <div class="bg-slate-800/70 backdrop-blur-sm inline-block p-8 rounded-lg">
                 <h3 class="text-3xl font-semibold mb-3">Adam Vaziri</h3>
                 <p class="text-xl text-slate-400">CEO, Blockpass</p>
                 <p class="text-xl text-blue-400 mt-2">investors@blockpass.org</p>
@@ -376,52 +420,41 @@
 
     <script>
         // Market Chart
-        const marketCtx = document.getElementById('marketChart').getContext('2d');
-        const marketChart = new Chart(marketCtx, {
+        const ctx = document.getElementById('marketChart');
+        new Chart(ctx, {
             type: 'bar',
             data: {
                 labels: ['2024', '2026', '2028', '2030'],
                 datasets: [{
-                    label: 'Global Digital Identity Market (USD Billions)',
-                    data: [39.1, 56.3, 81.1, 133.2],
-                    backgroundColor: 'rgba(96, 165, 250, 0.5)', /* blue-400 */
-                    borderColor: 'rgba(96, 165, 250, 1)', /* blue-400 */
+                    label: 'Market Size (USD Billions)',
+                    data: [39, 64, 98, 133],
+                    backgroundColor: 'rgba(56, 189, 248, 0.6)',
+                    borderColor: 'rgba(56, 189, 248, 1)',
                     borderWidth: 1
                 }]
             },
             options: {
-                responsive: true,
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                         grid: {
-                            color: 'rgba(255, 255, 255, 0.1)'
-                        },
-                        ticks: {
-                            color: '#CBD5E1' // slate-300
-                        }
-                    },
-                    x: {
-                         grid: {
-                            display: false
-                        },
-                        ticks: {
-                            color: '#CBD5E1' // slate-300
+                 plugins: {
+                    legend: {
+                        labels: {
+                            color: 'white'
                         }
                     }
                 },
-                plugins: {
-                    legend: {
-                        labels: {
-                            color: '#CBD5E1' // slate-300
-                        }
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: { color: 'white' },
+                        grid: { color: 'rgba(255, 255, 255, 0.1)' }
+                    },
+                    x: {
+                        ticks: { color: 'white' },
+                        grid: { color: 'rgba(255, 255, 255, 0.1)' }
                     }
                 }
             }
         });
     </script>
+
 </body>
 </html>
-
-
-
