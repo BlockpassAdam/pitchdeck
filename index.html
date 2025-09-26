@@ -3,419 +3,427 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blockpass Identity</title>
+    <title>Blockpass Pitch Deck</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         body {
             font-family: 'Inter', sans-serif;
+            scroll-snap-type: y mandatory;
+            overflow-y: scroll;
+            height: 100vh;
         }
-        /* Custom form-checkbox style to allow for consistent rounded corners */
-        .form-checkbox {
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            appearance: none;
-            padding: 0;
-            -webkit-print-color-adjust: exact;
-            color-adjust: exact;
-            display: inline-block;
-            vertical-align: middle;
-            background-origin: border-box;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-            flex-shrink: 0;
-            height: 1rem;
-            width: 1rem;
-            color: #4f46e5;
-            background-color: #fff;
-            border-color: #6b7280;
-            border-width: 1px;
-            border-radius: 0.25rem;
+        .slide {
+            scroll-snap-align: start;
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            position: relative;
         }
-        .form-checkbox:checked {
-            background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3e%3c/svg%3e");
-            border-color: transparent;
-            background-color: currentColor;
-            background-size: 100% 100%;
-            background-position: center;
-            background-repeat: no-repeat;
+        .slide-content {
+            max-width: 1200px;
+            width: 100%;
+            margin: auto;
+        }
+        .slide-number {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            font-size: 0.875rem;
+            color: #94A3B8; /* slate-400 */
         }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body class="bg-slate-900 text-slate-200">
 
-    <!-- Header -->
-    <header class="bg-white border-b border-gray-200 sticky top-0 z-40">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <!-- Logo -->
-                <div class="flex items-center space-x-3">
-                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-blue-600">
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M0 4C0 1.79086 1.79086 0 4 0H28C30.2091 0 32 1.79086 32 4V28C32 30.2091 30.2091 32 28 32H4C1.79086 32 0 30.2091 0 28V4ZM8 8V24H12V8H8ZM20.5 8C17.4624 8 15 10.4624 15 13.5V18.5C15 21.5376 17.4624 24 20.5 24H22V20H20.5C19.6716 20 19 19.3284 19 18.5V13.5C19 12.6716 19.6716 12 20.5 12H22V8H20.5Z" fill="currentColor"/>
-                    </svg>
-                    <span class="text-2xl font-bold text-gray-900">Blockpass</span>
+    <!-- Slide 1: Title -->
+    <div class="slide bg-slate-900">
+        <div class="slide-content text-center">
+            <h1 class="text-8xl font-bold mb-4">Blockpass</h1>
+            <p class="text-2xl text-slate-400">The Certified Digital Identity for Web3 and Beyond</p>
+            <p class="text-xl mt-8">Pitch Deck for Aquis Exchange Listing</p>
+        </div>
+        <div class="slide-number">1 / 13</div>
+    </div>
+
+    <!-- Slide 2: The Opportunity -->
+    <div class="slide bg-slate-800">
+        <div class="slide-content text-center">
+            <h2 class="text-4xl font-bold mb-8">The Opportunity is Now</h2>
+            <p class="text-xl max-w-4xl mx-auto text-slate-300 mb-10">The UK and EU have introduced official legal frameworks for digital identity. As pioneers in reusable KYC, the market is finally maturing, allowing Blockpass to become a government-certified identity provider and bridge the gap between Web3 and the real world.</p>
+            <div class="grid md:grid-cols-2 gap-8 text-left">
+                <div class="bg-slate-700 p-6 rounded-lg">
+                    <h3 class="text-2xl font-semibold mb-3">Regulatory Clarity</h3>
+                    <p class="text-slate-400">Frameworks like the UK's DIATF create a clear path for certified providers, removing market uncertainty and unlocking enterprise and government adoption.</p>
                 </div>
-                <!-- Right Side -->
-                <div class="flex items-center space-x-4">
-                    <!-- Pass Rewards -->
-                    <div class="hidden sm:flex items-center space-x-2 bg-yellow-100 text-yellow-800 px-3 py-1.5 rounded-lg">
-                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                           <path d="M10 2a6 6 0 00-6 6c0 1.887-.454 3.665-1.257 5.234a.75.75 0 00.652 1.083h13.21a.75.75 0 00.652-1.083C16.454 11.665 16 9.887 16 8a6 6 0 00-6-6zM3.523 15.243a.75.75 0 00-.652 1.083 8.48 8.48 0 001.257 1.442A8.5 8.5 0 0010 18a8.5 8.5 0 005.872-2.232c.38-.328.71-.694 1.257-1.442a.75.75 0 00-.652-1.083H3.523z" />
-                         </svg>
-                        <span class="text-sm font-semibold">1,250 PASS Rewards</span>
-                    </div>
+                <div class="bg-slate-700 p-6 rounded-lg">
+                    <h3 class="text-2xl font-semibold mb-3">Market Maturation</h3>
+                    <p class="text-slate-400">After years of development, the demand for trusted, user-controlled identity in both Web2 and Web3 is converging, creating an explosive market opportunity.</p>
+                </div>
+            </div>
+        </div>
+        <div class="slide-number">2 / 13</div>
+    </div>
 
-                    <!-- User Profile Dropdown -->
-                    <div class="relative">
-                        <button class="flex items-center space-x-2 p-2 rounded-lg hover:bg-gray-100 focus:outline-none">
-                             <span class="inline-block h-8 w-8 rounded-full bg-gray-200 flex items-center justify-center">
-                                <span class="text-sm font-semibold text-gray-600">SN</span>
-                             </span>
-                             <span class="hidden md:inline text-sm font-medium text-gray-700">satoshi@nakamoto.com</span>
-                             <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                             </svg>
-                        </button>
-                         <!-- Dropdown menu (for future use: settings, logout) can be built here -->
+    <!-- Slide 3: Our Proven Technology -->
+    <div class="slide bg-slate-900">
+        <div class="slide-content">
+            <h2 class="text-4xl font-bold mb-8 text-center">A Battle-Tested & Trusted Platform</h2>
+            <p class="text-xl text-center max-w-3xl mx-auto text-slate-300 mb-10">We are a break-even company within Web3, built on 7 years of operational experience. Our platform is certified, highly-rated, and ready for mass adoption.</p>
+            <div class="grid md:grid-cols-2 gap-8 text-center">
+                <div class="bg-slate-800 p-6 rounded-lg">
+                    <h3 class="text-2xl font-semibold mb-4">Scalable e-KYC Platform</h3>
+                    <p>API-first model with full remediation and AML monitoring, serving 650+ businesses.</p>
+                </div>
+                <div class="bg-slate-800 p-6 rounded-lg">
+                    <h3 class="text-2xl font-semibold mb-4">Certified Secure</h3>
+                    <p>ISO 27001 and Cyber Essentials Plus certified, ensuring enterprise-grade security.</p>
+                </div>
+                 <div class="bg-slate-800 p-6 rounded-lg">
+                    <h3 class="text-2xl font-semibold mb-4">Industry Pioneer</h3>
+                    <p>7 years of operational experience in the digital identity space.</p>
+                </div>
+                <div class="bg-slate-800 p-6 rounded-lg">
+                    <h3 class="text-2xl font-semibold mb-4">Highly Rated by Users</h3>
+                    <p>4.3-star rating on TrustPilot, reflecting excellent user satisfaction.</p>
+                </div>
+            </div>
+        </div>
+        <div class="slide-number">3 / 13</div>
+    </div>
+
+    <!-- Slide 4: Bank-Grade Compliance Suite -->
+    <div class="slide bg-slate-800">
+        <div class="slide-content">
+            <h2 class="text-4xl font-bold mb-8 text-center">A Bank-Grade Compliance Suite</h2>
+            <p class="text-xl text-center max-w-4xl mx-auto text-slate-300 mb-10">Our KYC Connect® dashboard offers a comprehensive, bank-grade verification system for both individuals and businesses, complete with full dashboard remediation and user support.</p>
+            <div class="grid md:grid-cols-2 gap-8 text-left">
+                <div class="bg-slate-700 p-6 rounded-lg">
+                    <h3 class="text-2xl font-semibold mb-4">Comprehensive KYC Features</h3>
+                    <ul class="list-disc list-inside text-slate-300 space-y-2">
+                        <li>Proof of Address Verification</li>
+                        <li>PEP, Sanctions & Adverse Media Checks</li>
+                        <li>Enhanced Due Diligence (EDD)</li>
+                        <li>Wallet Screening, Monitoring & Ownership Checks</li>
+                        <li>Continuous AML Monitoring</li>
+                    </ul>
+                </div>
+                <div class="bg-slate-700 p-6 rounded-lg">
+                    <h3 class="text-2xl font-semibold mb-4">Global KYB Solution</h3>
+                    <p class="text-slate-300">A seamless, fully supported process for business verification that covers all jurisdictions and corporate structures, ensuring compliance on a global scale.</p>
+                </div>
+            </div>
+        </div>
+        <div class="slide-number">4 / 13</div>
+    </div>
+
+    <!-- Slide 5: The Next Evolution: Blockpass ID 2.0 -->
+    <div class="slide bg-slate-900">
+        <div class="slide-content text-center">
+            <h2 class="text-4xl font-bold mb-8">The Future: A Full Attestation Framework</h2>
+            <p class="text-xl max-w-4xl mx-auto text-slate-300 mb-10">Our next objective is to complete the circle. Blockpass ID 2.0 will offer a full framework for individuals and businesses to generate, control, and use certified attestations across Web2 and Web3.</p>
+            <!--  -->
+            <div class="bg-slate-700 p-8 rounded-lg flex flex-col md:flex-row items-center gap-8">
+                <div class="text-center">
+                    <p class="text-2xl font-bold text-blue-400">User obtains a certified attestation from Blockpass</p>
+                    <p class="text-slate-400">(e.g., "Is Over 25", "Is Not Sanctioned")</p>
+                </div>
+                <div class="text-4xl mx-4 text-blue-400">&rarr;</div>
+                <div class="text-center">
+                    <p class="text-2xl font-bold text-blue-400">User controls the attestation with their Metamask Wallet</p>
+                    <p class="text-slate-400">(Self-Sovereign Control)</p>
+                </div>
+                <div class="text-4xl mx-4 text-blue-400">&rarr;</div>
+                <div class="text-center">
+                    <p class="text-2xl font-bold text-blue-400">User presents it for any use case</p>
+                    <p class="text-slate-400">(Renting a car, accessing a smart contract)</p>
+                </div>
+            </div>
+        </div>
+        <div class="slide-number">5 / 13</div>
+    </div>
+
+     <!-- Slide 6: Market Opportunity -->
+    <div class="slide bg-slate-800">
+        <div class="slide-content">
+            <h2 class="text-4xl font-bold mb-8 text-center">An Exploding Market</h2>
+             <p class="text-xl text-center max-w-4xl mx-auto text-slate-300 mb-10">The digital identity market is rapidly expanding, projected to grow from ~$39 billion in 2024 to over $130 billion by 2030, with a CAGR of over 20%. This growth is driven by rising security threats and new government frameworks.</p>
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4 text-center">Global Digital Identity Market (USD Billions)</h3>
+                     <canvas id="marketChart"></canvas>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4">Our Target Markets (SAM/SOM)</h3>
+                    <ul class="list-disc list-inside text-lg space-y-3 text-slate-300">
+                        <li><strong class="text-white">Web3 (Crypto, DeFi, NFTs):</strong> Our core, profitable market where compliance is becoming mandatory.</li>
+                        <li><strong class="text-white">Fintech & Regulated Industries:</strong> Expanding into sectors requiring robust, efficient digital KYC/AML.</li>
+                        <li><strong class="text-white">Web2 Use Cases:</strong> Unlocking new revenue streams through attestations for everyday activities (age verification, rentals).</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="slide-number">6 / 13</div>
+    </div>
+
+    <!-- Slide 7: Competitive Advantage -->
+    <div class="slide bg-slate-900">
+        <div class="slide-content">
+            <h2 class="text-4xl font-bold mb-8 text-center">Our Competitive Advantage</h2>
+            <table class="w-full text-left border-collapse text-sm md:text-base">
+                <thead>
+                    <tr>
+                        <th class="border-b-2 border-slate-600 p-2 md:p-4">Feature</th>
+                        <th class="border-b-2 border-slate-600 p-2 md:p-4 text-center text-blue-400">Blockpass</th>
+                        <th class="border-b-2 border-slate-600 p-2 md:p-4 text-center">UK Certified IDPs (Yoti, OneID)</th>
+                        <th class="border-b-2 border-slate-600 p-2 md:p-4 text-center">Legacy KYC (Jumio, Onfido)</th>
+                        <th class="border-b-2 border-slate-600 p-2 md:p-4 text-center">Web3 Protocols (Civic, BrightID)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="bg-slate-700">
+                        <td class="p-2 md:p-4 font-semibold">UK DIATF Certification</td>
+                        <td class="p-2 md:p-4 text-center text-yellow-400">In Progress</td>
+                        <td class="p-2 md:p-4 text-center text-green-400">✔</td>
+                        <td class="p-2 md:p-4 text-center text-red-400">✖</td>
+                        <td class="p-2 md:p-4 text-center text-red-400">✖</td>
+                    </tr>
+                    <tr>
+                        <td class="p-2 md:p-4 font-semibold">Web3 Wallet Control</td>
+                        <td class="p-2 md:p-4 text-center text-green-400">✔</td>
+                        <td class="p-2 md:p-4 text-center text-red-400">✖</td>
+                        <td class="p-2 md:p-4 text-center text-red-400">✖</td>
+                        <td class="p-2 md:p-4 text-center text-green-400">✔</td>
+                    </tr>
+                    <tr class="bg-slate-700">
+                        <td class="p-2 md:p-4 font-semibold">Web2 & Web3 Use Cases</td>
+                        <td class="p-2 md:p-4 text-center text-green-400">✔</td>
+                        <td class="p-2 md:p-4 text-center text-yellow-400">Web2 Only</td>
+                        <td class="p-2 md:p-4 text-center text-red-400">✖ (Single Use)</td>
+                        <td class="p-2 md:p-4 text-center text-yellow-400">Web3 Only</td>
+                    </tr>
+                    <tr>
+                        <td class="p-2 md:p-4 font-semibold">Proven B2B SaaS Model</td>
+                        <td class="p-2 md:p-4 text-center text-green-400">✔</td>
+                        <td class="p-2 md:p-4 text-center text-green-400">✔</td>
+                        <td class="p-2 md:p-4 text-center text-green-400">✔</td>
+                        <td class="p-2 md:p-4 text-center text-yellow-400">Token-based</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="slide-number">7 / 13</div>
+    </div>
+
+    <!-- Slide 8: Business Model & PASS Token -->
+    <div class="slide bg-slate-800">
+        <div class="slide-content">
+            <h2 class="text-4xl font-bold mb-8 text-center">Business Model & Token Utility</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-slate-800 p-8 rounded-lg">
+                    <h3 class="text-2xl font-semibold mb-4">Proven B2B SaaS Revenue</h3>
+                    <ul class="list-disc list-inside text-lg text-slate-300 space-y-2">
+                        <li><strong>Setup Fee:</strong> One-time integration and onboarding fee.</li>
+                        <li><strong>Annual License Fee:</strong> Recurring revenue for platform access.</li>
+                        <li><strong>Pay-per-Verification:</strong> Scalable usage-based fees.</li>
+                    </ul>
+                </div>
+                 <div class="bg-slate-800 p-8 rounded-lg">
+                    <h3 class="text-2xl font-semibold mb-4">PASS Token Strategy</h3>
+                    <ul class="list-disc list-inside text-lg text-slate-300 space-y-2">
+                        <li><strong>User Incentives:</strong> We will continue to offer incentives through the PASS token for users as they obtain attestations.</li>
+                        <li><strong>Future Development:</strong> Once listed, we will develop the token strategy further to enhance network effects and user engagement.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="slide-number">8 / 13</div>
+    </div>
+
+    <!-- Slide 9: Traction -->
+    <div class="slide bg-slate-900">
+        <div class="slide-content text-center">
+            <h2 class="text-4xl font-bold mb-8">Our Traction & Network</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-slate-700 p-6 rounded-lg">
+                    <p class="text-5xl font-bold text-blue-400">1.3M+</p>
+                    <p class="text-xl mt-2 text-slate-300">Verified Users</p>
+                </div>
+                <div class="bg-slate-700 p-6 rounded-lg">
+                    <p class="text-5xl font-bold text-blue-400">650+</p>
+                    <p class="text-xl mt-2 text-slate-300">Business Customers</p>
+                </div>
+                <div class="bg-slate-700 p-6 rounded-lg">
+                    <p class="text-5xl font-bold text-blue-400">80+</p>
+                    <p class="text-xl mt-2 text-slate-300">Enterprise Subscribers</p>
+                </div>
+                <div class="bg-slate-700 p-6 rounded-lg">
+                    <p class="text-5xl font-bold text-blue-400">Break-Even</h2>
+                    <p class="text-xl mt-2 text-slate-300">Profitable within Web3</p>
+                </div>
+            </div>
+        </div>
+        <div class="slide-number">9 / 13</div>
+    </div>
+
+    <!-- Slide 10: Strategic Roadmap -->
+    <div class="slide bg-slate-800">
+        <div class="slide-content">
+            <h2 class="text-4xl font-bold mb-8 text-center">Strategic Roadmap</h2>
+            <div class="border-l-2 border-blue-400 ml-6 md:ml-0 pl-6 md:pl-0 md:border-l-0 md:border-t-2 md:flex">
+                <div class="flex-1 md:border-l-2 border-blue-400 md:pt-4 pl-6 relative">
+                    <div class="absolute -left-3 -top-1.5 md:-left-2.5 md:-top-2.5 w-4 h-4 bg-blue-400 rounded-full"></div>
+                    <h3 class="text-xl font-bold">Phase 1: Funding & Listing</h3>
+                    <p class="text-slate-400 mt-2">Raise $1M Seed Round</p>
+                    <p class="text-slate-400">Complete Aquis Listing</p>
+                </div>
+                <div class="flex-1 md:border-l-2 border-blue-400 md:pt-4 pl-6 relative">
+                    <div class="absolute -left-3 -top-1.5 md:-left-2.5 md:-top-2.5 w-4 h-4 bg-blue-400 rounded-full"></div>
+                    <h3 class="text-xl font-bold">Phase 2: Certification</h3>
+                    <p class="text-slate-400 mt-2">Achieve DIATF Certification</p>
+                </div>
+                <div class="flex-1 md:border-l-2 border-blue-400 md:pt-4 pl-6 relative">
+                    <div class="absolute -left-3 -top-1.5 md:-left-2.5 md:-top-2.5 w-4 h-4 bg-blue-400 rounded-full"></div>
+                    <h3 class="text-xl font-bold">Phase 3: Product & Market</h3>
+                    <p class="text-slate-400 mt-2">Build out Blockpass ID 2.0 Attestation Modules</p>
+                    <p class="text-slate-400">Launch targeted marketing campaigns</p>
+                </div>
+                <div class="flex-1 md:border-l-2 border-blue-400 md:pt-4 pl-6 relative">
+                    <div class="absolute -left-3 -top-1.5 md:-left-2.5 md:-top-2.5 w-4 h-4 bg-blue-400 rounded-full"></div>
+                    <h3 class="text-xl font-bold">Phase 4: Expansion</h3>
+                    <p class="text-slate-400 mt-2">Onboard enterprise clients for Web2 use cases</p>
+                    <p class="text-slate-400">Explore further government pilots</p>
+                </div>
+            </div>
+        </div>
+        <div class="slide-number">10 / 13</div>
+    </div>
+
+    <!-- Slide 11: The Team -->
+    <div class="slide bg-slate-900">
+        <div class="slide-content">
+            <h2 class="text-4xl font-bold mb-8 text-center">Our Team</h2>
+            <div class="grid md:grid-cols-3 gap-8 text-center">
+                <div>
+                    <img src="https://placehold.co/128x128/334155/FFFFFF?text=AV" alt="Adam Vaziri" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover border-2 border-blue-400">
+                    <h3 class="text-xl font-semibold">Adam Vaziri</h3>
+                    <p class="text-slate-400">CEO</p>
+                </div>
+                <div>
+                    <img src="https://placehold.co/128x128/334155/FFFFFF?text=HL" alt="Hans Lombardo" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover border-2 border-blue-400">
+                    <h3 class="text-xl font-semibold">Hans Lombardo</h3>
+                    <p class="text-slate-400">CMO</p>
+                </div>
+                <div>
+                    <img src="https://placehold.co/128x128/334155/FFFFFF?text=TL" alt="Thomas Leiritz" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover border-2 border-blue-400">
+                    <h3 class="text-xl font-semibold">Thomas Leiritz</h3>
+                    <p class="text-slate-400">CTO</p>
+                </div>
+            </div>
+        </div>
+        <div class="slide-number">11 / 13</div>
+    </div>
+
+    <!-- Slide 12: The Ask -->
+    <div class="slide bg-slate-800">
+        <div class="slide-content text-center">
+            <h2 class="text-4xl font-bold mb-8">The Ask</h2>
+            <p class="text-2xl mb-4">We are raising <span class="text-blue-400 font-bold">$1 million</span> to accelerate our growth and achieve full certification.</p>
+            <div class="mt-8">
+                 <h3 class="text-2xl font-semibold mb-6">Use of Funds:</h3>
+                <div class="grid md:grid-cols-4 gap-8 text-left">
+                     <div class="bg-slate-800 p-6 rounded-lg">
+                        <h4 class="font-bold text-xl text-blue-400">Certification</h4>
+                        <p class="text-slate-300">Obtain UK DIATF and other necessary certifications.</p>
+                    </div>
+                    <div class="bg-slate-800 p-6 rounded-lg">
+                         <h4 class="font-bold text-xl text-blue-400">Build Modules</h4>
+                         <p class="text-slate-300">Build out the full Blockpass ID 2.0 attestation framework.</p>
+                    </div>
+                     <div class="bg-slate-800 p-6 rounded-lg">
+                        <h4 class="font-bold text-xl text-blue-400">Marketing</h4>
+                        <p class="text-slate-300">Market the new certified identity system to Web2 & Web3.</p>
+                    </div>
+                    <div class="bg-slate-800 p-6 rounded-lg">
+                        <h4 class="font-bold text-xl text-blue-400">Aquis Listing</h4>
+                        <p class="text-slate-300">Cover all costs associated with listing the company.</p>
                     </div>
                 </div>
             </div>
         </div>
-    </header>
-
-    <!-- Main Content -->
-    <main class="py-10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            
-            <!-- User DID Section -->
-            <div class="bg-white rounded-lg shadow-md p-6 mb-8">
-                <h2 class="text-lg font-semibold text-gray-900 mb-2">Your Decentralized ID (DID)</h2>
-                <div class="bg-gray-100 rounded-md p-3 flex items-center justify-between">
-                    <code id="did-text" class="text-sm text-gray-700 font-mono break-all">did:blockpass:z6Mkk7yqnGF3YwTr5x2hJc2b5f2d8a1...</code>
-                    <button id="copy-did" title="Copy DID" class="ml-4 text-gray-500 hover:text-gray-700 p-1 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
-                        </svg>
-                    </button>
-                </div>
-                <p class="text-xs text-gray-500 mt-2">This is your permanent, unique identifier generated from the email you used to sign in. It is used to anchor your attestations and credentials.</p>
-            </div>
-
-            <!-- Get Verified Section -->
-             <div class="mt-12 bg-white rounded-lg shadow-md p-6" id="verification-section">
-                <h2 class="text-xl font-semibold text-gray-900 mb-4">Complete Your Verification</h2>
-                <p class="text-sm text-gray-600 mb-6">Get your first attestation by completing your identity verification. You'll earn PASS Rewards upon successful verification!</p>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <!-- Standard Verification -->
-                    <div class="flex flex-col items-center justify-between bg-blue-50 p-6 rounded-lg text-center">
-                        <div class="mb-4">
-                            <h3 class="font-bold text-lg text-gray-800">Standard Verification</h3>
-                            <p class="text-gray-600 mt-1 text-sm">Submit your government-issued identity documents like a passport or driver's license.</p>
-                        </div>
-                        <button class="w-full md:w-auto px-6 py-2 font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition">
-                            Verify with Documents
-                        </button>
-                    </div>
-                    <!-- Open Banking -->
-                     <div class="flex flex-col items-center justify-between bg-green-50 p-6 rounded-lg text-center">
-                        <div class="mb-4">
-                            <h3 class="font-bold text-lg text-gray-800">Verify with Open Banking</h3>
-                            <p class="text-gray-600 mt-1 text-sm">Use your existing, verified bank account for a faster verification process. No document uploads required.</p>
-                        </div>
-                        <button class="w-full md:w-auto px-6 py-2 font-medium text-white bg-green-600 rounded-lg hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition">
-                            Verify with Bank
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-12">
-                <!-- Left Column: Attestations -->
-                <div class="lg:col-span-1">
-                    <div class="bg-white rounded-lg shadow-md p-6">
-                        <h2 class="text-xl font-semibold text-gray-900 mb-4">My Private Attestations</h2>
-                        <div class="space-y-4">
-                            <!-- Attestation 1: KYC Status -->
-                            <div class="p-3 bg-gray-50 rounded-lg">
-                                <p class="font-medium text-gray-800">KYC Status</p>
-                                <div class="flex items-center justify-between mt-2">
-                                     <span class="text-xs font-medium bg-green-100 text-green-800 px-2 py-1 rounded-full">Active</span>
-                                     <span class="text-xs text-gray-500">Expires: Oct 2026</span>
-                                </div>
-                                <button class="mt-3 w-full publish-onchain-btn text-sm text-blue-600 hover:underline font-medium">Publish On-Chain</button>
-                            </div>
-                             <!-- Attestation 2: Over 18 -->
-                            <div class="p-3 bg-gray-50 rounded-lg">
-                                <p class="font-medium text-gray-800">Over 18</p>
-                                <div class="flex items-center justify-between mt-2">
-                                     <span class="text-xs font-medium bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full">Expires Soon</span>
-                                     <span class="text-xs text-gray-500">Expires: 2 weeks</span>
-                                </div>
-                                <button class="mt-3 w-full px-4 py-2 text-sm font-medium text-white bg-yellow-500 rounded-lg hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500">Renew Now (Biometric)</button>
-                            </div>
-                            <!-- Attestation 3: Accredited Investor -->
-                            <div class="p-3 bg-gray-50 rounded-lg">
-                                <p class="font-medium text-gray-800">Accredited Investor</p>
-                                <div class="flex items-center justify-between mt-2">
-                                     <span class="text-xs font-medium bg-red-100 text-red-800 px-2 py-1 rounded-full">Expired</span>
-                                     <span class="text-xs text-gray-500">Expired: Jan 2025</span>
-                                </div>
-                                 <button class="mt-3 w-full px-4 py-2 text-sm font-medium text-white bg-red-600 rounded-lg hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">Renew Now</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Right Column: Wallets -->
-                <div class="lg:col-span-2">
-                    <div class="bg-white rounded-lg shadow-md p-6">
-                            <div class="flex justify-between items-center mb-4">
-                                <h2 class="text-xl font-semibold text-gray-900">My Controller Wallets</h2>
-                                <button id="add-wallet-btn" class="px-4 py-2 text-sm font-medium text-white bg-green-600 rounded-lg hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 hidden">Add Wallet</button>
-                            </div>
-                            <div class="space-y-4">
-                                <!-- Wallet 1 - Hidden by default -->
-                                <div id="wallet-1-card" class="p-4 bg-gray-50 rounded-lg hidden">
-                                    <div class="flex items-center justify-between">
-                                        <div class="flex items-center space-x-3">
-                                            <img src="https://upload.wikimedia.org/wikipedia/commons/3/36/MetaMask_Fox.svg" class="h-8 w-8" alt="MetaMask">
-                                            <div>
-                                                <p class="font-medium text-gray-800">Primary Wallet</p>
-                                                <p class="text-sm text-gray-500 font-mono wallet-address">0x...</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Wallet Placeholder -->
-                                <div id="wallet-placeholder" class="text-center p-8 border-2 border-dashed border-gray-300 rounded-lg">
-                                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/36/MetaMask_Fox.svg" class="h-12 w-12 mx-auto mb-4" alt="MetaMask">
-                                    <p class="text-gray-500 mb-4">Connect your primary wallet to manage your identity.</p>
-                                    <button id="connect-wallet-main" class="bg-orange-500 text-white rounded-lg shadow-sm px-4 py-2 flex items-center justify-center space-x-2 transition-all duration-300 hover:shadow-md hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-opacity-50 mx-auto">
-                                        <span class="font-medium text-sm">Connect Primary Wallet</span>
-                                    </button>
-                                </div>
-                            </div>
-                    </div>
-                     <!-- Blockpass data retention notice -->
-                    <div class="mt-8 bg-blue-50 border-l-4 border-blue-400 p-4 rounded-md shadow-sm">
-                        <div class="flex">
-                            <div class="flex-shrink-0">
-                                <svg class="h-5 w-5 text-blue-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
-                                </svg>
-                            </div>
-                            <div class="ml-3 flex-1 md:flex md:justify-between items-center">
-                                <p class="text-sm text-blue-700">
-                                    <span class="font-bold">Privacy Notice:</span> Your source documents (e.g., passport scans) are deleted after 7 days. Your attestations are safe, but you can choose to encrypt and retain your documents for future convenience.
-                                </p>
-                                <button class="mt-2 md:mt-0 md:ml-4 whitespace-nowrap px-3 py-1.5 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-                                    Encrypt My Data
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- KYC Profile Sharing History Section -->
-            <div class="mt-12 bg-white rounded-lg shadow-md p-6">
-                <h2 class="text-xl font-semibold text-gray-900 mb-4">KYC Profile Sharing History</h2>
-                <p class="text-sm text-gray-600 mb-6">You earn PASS Rewards every time you share your full identity profile. Here's where you've completed a full KYC submission.</p>
-                <div class="space-y-4">
-                    <!-- Service 1 -->
-                    <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg transition-shadow duration-300 hover:shadow-sm">
-                        <div class="flex items-center space-x-4">
-                            <img src="https://placehold.co/40x40/f59e0b/ffffff?text=CE" class="h-10 w-10 rounded-full" alt="Crypto Exchange Logo">
-                            <div>
-                                <p class="font-medium text-gray-800">Crypto Exchange</p>
-                                <p class="text-sm text-gray-500">Shared Profile: 2025-09-01</p>
-                            </div>
-                        </div>
-                         <span class="text-sm font-medium text-green-700 bg-green-100 px-3 py-1 rounded-full">+100 PASS</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Attestation Sharing History Section -->
-            <div class="mt-12 bg-white rounded-lg shadow-md p-6">
-                <h2 class="text-xl font-semibold text-gray-900 mb-4">Attestation Sharing History</h2>
-                <p class="text-sm text-gray-600 mb-6">Track where you've used your selective attestations, both off-chain and on-chain.</p>
-                <div class="space-y-4">
-                    <!-- Service 1 -->
-                    <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg transition-shadow duration-300 hover:shadow-sm">
-                        <div class="flex items-center space-x-4">
-                            <img src="https://placehold.co/40x40/7c3aed/ffffff?text=RC" class="h-10 w-10 rounded-full" alt="Rent-a-Car Logo">
-                            <div>
-                                <p class="font-medium text-gray-800">Rent-a-Car Platform</p>
-                                <p class="text-sm text-gray-500">Shared 'Over 18' Attestation (Off-chain)</p>
-                            </div>
-                        </div>
-                        <span class="text-xs text-gray-500">2025-08-15</span>
-                    </div>
-                    <!-- Service 2 -->
-                    <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg transition-shadow duration-300 hover:shadow-sm">
-                        <div class="flex items-center space-x-4">
-                             <img src="https://placehold.co/40x40/10b981/ffffff?text=DS" class="h-10 w-10 rounded-full" alt="DeFi Staking Logo">
-                            <div>
-                                <p class="font-medium text-gray-800">DeFi Staking Protocol</p>
-                                <p class="text-sm text-gray-500">Published 'KYC Status' Attestation (On-chain)</p>
-                            </div>
-                        </div>
-                        <span class="text-xs text-gray-500">2025-07-30</span>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </main>
-
-    <!-- Attestation Publishing Modal -->
-    <div id="publish-modal" class="fixed inset-0 bg-gray-800 bg-opacity-75 overflow-y-auto h-full w-full hidden z-50 flex items-center justify-center">
-        <div class="relative mx-auto p-6 border w-full max-w-2xl shadow-lg rounded-xl bg-white">
-            <div class="text-left">
-                <div class="flex justify-between items-center mb-4">
-                    <h3 class="text-xl leading-6 font-bold text-gray-900">Publish Attestations On-Chain</h3>
-                    <button id="close-modal" class="text-gray-400 hover:text-gray-600 p-1 rounded-full">
-                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-                    </button>
-                </div>
-                <p class="text-sm text-gray-500 mb-6">Select which attestations you want to publish on-chain for your wallet. This action requires a gas fee.</p>
-                
-                <div class="space-y-6">
-                     <!-- Private Attestation 1: Over 18 -->
-                    <div>
-                        <h4 class="font-semibold text-gray-800 text-left mb-3">KYC Status Attestation</h4>
-                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 text-left">
-                            <label class="flex items-center space-x-2 p-2 bg-gray-50 rounded-md hover:bg-gray-100 cursor-pointer transition-colors"><input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 rounded focus:ring-blue-500 border-gray-300"><span>Ethereum</span></label>
-                            <label class="flex items-center space-x-2 p-2 bg-gray-50 rounded-md hover:bg-gray-100 cursor-pointer transition-colors"><input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 rounded focus:ring-blue-500 border-gray-300"><span>Optimism</span></label>
-                            <label class="flex items-center space-x-2 p-2 bg-gray-50 rounded-md hover:bg-gray-100 cursor-pointer transition-colors"><input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 rounded focus:ring-blue-500 border-gray-300"><span>Arbitrum</span></label>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="mt-8 text-right">
-                    <button id="save-assignments" class="px-6 py-2.5 bg-blue-600 text-white font-medium rounded-lg w-full sm:w-auto shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all">
-                        Confirm & Publish
-                    </button>
-                </div>
+        <div class="slide-number">12 / 13</div>
+    </div>
+    
+    <!-- Slide 13: Contact -->
+    <div class="slide bg-slate-900">
+        <div class="slide-content text-center">
+            <h2 class="text-5xl font-bold mb-6">Thank You</h2>
+            <p class="text-2xl text-slate-300 mb-8">Let's build the future of digital identity together.</p>
+            <div>
+                <h3 class="text-3xl font-semibold mb-3">Adam Vaziri</h3>
+                <p class="text-xl text-slate-400">CEO, Blockpass</p>
+                <p class="text-xl text-blue-400 mt-2">investors@blockpass.org</p>
             </div>
         </div>
+        <div class="slide-number">13 / 13</div>
     </div>
 
 
     <script>
-        window.addEventListener('load', () => {
-            const connectWalletButton = document.getElementById('connect-wallet-main');
-            const copyDidButton = document.getElementById('copy-did');
-            const didTextEl = document.getElementById('did-text');
-            const walletPlaceholder = document.getElementById('wallet-placeholder');
-            const walletCard = document.getElementById('wallet-1-card');
-            const walletAddressEl = walletCard.querySelector('.wallet-address');
-            const addWalletBtn = document.getElementById('add-wallet-btn');
-
-            // Wallet connection logic
-            const connectWallet = async () => {
-                 if (typeof window.ethereum !== 'undefined' && window.ethereum.isMetaMask) {
-                    try {
-                        const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
-                        const account = accounts[0];
-                        
-                        // Update UI
-                        if(walletPlaceholder) walletPlaceholder.classList.add('hidden');
-                        if(walletCard) walletCard.classList.remove('hidden');
-                        if(walletAddressEl) walletAddressEl.textContent = `${account.substring(0, 6)}...${account.substring(account.length - 4)}`;
-                        if(addWalletBtn) addWalletBtn.classList.remove('hidden');
-
-                    } catch (error) {
-                        console.error('User rejected the request or an error occurred', error);
-                        alert('Wallet connection failed. Please try again.');
+        // Market Chart
+        const marketCtx = document.getElementById('marketChart').getContext('2d');
+        const marketChart = new Chart(marketCtx, {
+            type: 'bar',
+            data: {
+                labels: ['2024', '2026', '2028', '2030'],
+                datasets: [{
+                    label: 'Global Digital Identity Market (USD Billions)',
+                    data: [39.1, 56.3, 81.1, 133.2],
+                    backgroundColor: 'rgba(96, 165, 250, 0.5)', /* blue-400 */
+                    borderColor: 'rgba(96, 165, 250, 1)', /* blue-400 */
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                         grid: {
+                            color: 'rgba(255, 255, 255, 0.1)'
+                        },
+                        ticks: {
+                            color: '#CBD5E1' // slate-300
+                        }
+                    },
+                    x: {
+                         grid: {
+                            display: false
+                        },
+                        ticks: {
+                            color: '#CBD5E1' // slate-300
+                        }
                     }
-                } else {
-                    alert('MetaMask is not installed. Please install it to continue.');
-                    window.open('https://metamask.io/download/', '_blank');
-                }
-            };
-            
-            if(connectWalletButton) {
-                connectWalletButton.addEventListener('click', connectWallet);
-            }
-
-
-            // DID copy logic
-            if (copyDidButton && didTextEl) {
-                copyDidButton.addEventListener('click', () => {
-                    const didText = didTextEl.textContent;
-                    const textArea = document.createElement('textarea');
-                    textArea.value = didText;
-                    document.body.appendChild(textArea);
-                    textArea.select();
-                    try {
-                        document.execCommand('copy');
-                        const originalIcon = copyDidButton.innerHTML;
-                        copyDidButton.innerHTML = `
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                            </svg>
-                        `;
-                        setTimeout(() => {
-                            copyDidButton.innerHTML = originalIcon;
-                        }, 1500);
-                    } catch (err) {
-                        console.error('Failed to copy text: ', err);
+                },
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: '#CBD5E1' // slate-300
+                        }
                     }
-                    document.body.removeChild(textArea);
-                });
-            }
-
-            // Modal logic
-            const publishModal = document.getElementById('publish-modal');
-            const closeModalButton = document.getElementById('close-modal');
-            const saveAssignmentsButton = document.getElementById('save-assignments');
-            const publishButtons = document.querySelectorAll('.publish-onchain-btn');
-
-            const openModal = () => {
-                 if (publishModal) {
-                    publishModal.classList.remove('hidden');
                 }
-            };
-
-            const closeModal = () => {
-                if (publishModal) {
-                    publishModal.classList.add('hidden');
-                }
-            };
-
-            publishButtons.forEach(button => {
-                button.addEventListener('click', (e) => {
-                    openModal();
-                });
-            });
-
-            if (closeModalButton) {
-                closeModalButton.addEventListener('click', closeModal);
-            }
-
-            if (saveAssignmentsButton) {
-                saveAssignmentsButton.addEventListener('click', () => {
-                    console.log('Publishing attestations...');
-                    closeModal();
-                });
-            }
-
-            if (publishModal) {
-                publishModal.addEventListener('click', (event) => {
-                    if (event.target === publishModal) {
-                        closeModal();
-                    }
-                });
             }
         });
     </script>
-
 </body>
 </html>
+
+
+
+
 
